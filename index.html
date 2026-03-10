@@ -7,7 +7,44 @@
     <title>adaquiz2</title>
   </head>
   <body>
-    <div id="app"></div>
+    <header>
+      <h1>Quiz des gisèle</h1>
+    </header>
+    <main>
+      <section id="screen-start">
+        <div id="accueil">
+          <h2>Bienvenue dans le quiz des gisèle</h2>
+          <h3>
+            <p>
+              Teste tes connaissances sur les femmes scientifiques célèbres.
+            </p>
+          </h3>
+        </div>
+        <button
+          onmouseover="this.innerText = 'Démarrer'"
+          onmouseout="this.innerText = 'Les femmes scientifiques célèbres'"
+        >
+          Les femmes scientifiques célèbres
+        </button>
+      </section>
+      <section id="screen-question" style="display: none">
+        <div class="question"></div>
+        <div id="scoreDisplay">0 / 10</div>
+        <button id="next" style="display: none" onclick="questionSuivante()">
+          Question suivante
+        </button>
+      </section>
+      <section id="screen-end" style="display: none">
+        <div id="result"></div>
+        <div id="app"></div>
+        <div id="message"></div>
+        <div id="scoreText"></div>
+        <button id="startagain" onclick="recommencerQuiz()">Recommencer</button>
+      </section>
+
+      <!--resulat bon ou mauvais-->
+    </main>
+
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
