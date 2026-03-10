@@ -1,9 +1,10 @@
 import "./style.css";
-import { extractQuestion, extractOptions } from "./readJson.js";
+import { addQuestionHtml, btnValide } from "./readJson.js";
 
 fetch("/quiz.json")
   .then((response) => response.json())
   .then((data) => {
-    console.log(extractQuestion(data.questions, 4));
+    addQuestionHtml(data.questions, 1, "app");
+    btnValide("valide");
   })
   .catch((error) => console.error("Erreur:", error));
