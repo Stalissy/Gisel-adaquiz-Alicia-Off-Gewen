@@ -2,3 +2,39 @@
   margin: 0;
   padding: 0;
 }
+html {
+  scroll-behavior: smooth;
+}
+
+/* Colors token */
+:root {
+  --color-primary: #ffcfea;
+  --color-text: #f3f4a4;
+  --bg-color: #9e99d6;
+  --color-bg-color: pink;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-primary: #ffcfea;
+    --color-text: #feffbe;
+    --bg-color: rgb(3, 3, 38);
+  }
+}
+body {
+  color: var(--color-text);
+  background-color: var(--bg-color);
+  text-align: center;
+  margin-top: 5rem;
+}
+button {
+  background: #ffcfcf;
+  background: radial-gradient(
+    circle,
+    rgba(255, 207, 207, 1) 26%,
+    rgba(173, 214, 255, 1) 100%
+  );
+  text-align: center;
+  border-radius: 2rem;
+  padding: 1rem;
+  margin: 1rem;
+}
