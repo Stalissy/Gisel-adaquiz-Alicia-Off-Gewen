@@ -1,0 +1,90 @@
+{
+  "title": "Culture Transfem",
+  "questions": [
+    {
+      "question": "Qui est la chanteuse trans la plus connu en france ?",
+      "options": ["Théa", "Graphy-T", "Changeline", "Petite Soeur"],
+      "correctIndex": [0]
+    },
+    {
+      "question": "Qui est la créatrice de l'hyperpop ?",
+      "options": ["Blåhaj", "Bromaz", "Sophie", "Théa"],
+      "correctIndex": [2]
+    },
+    {
+      "question": "Que veut dire le therme Goke ?",
+      "options": [
+        "Un type d'oestrogène",
+        "Girl-cock",
+        "Un style vestimentaire",
+        "Un façon affectueuse de s'appellée entre transfemme"
+      ],
+      "correctIndex": [1]
+    },
+    {
+      "question": "Qu'elle est la boisson préférée des transfem ?",
+      "options": ["Le coca", "La bierre", "Les jus de fruit", "La monster"],
+      "correctIndex": [3]
+    },
+    {
+      "question": "Quelle sont les discipline favorite des transfem (Plusieurs réponse)?",
+      "options": ["Informatique", "Cuisine", "Musique", "Sport"],
+      "correctIndex": [0, 2]
+    },
+    {
+      "question": "Quelle sont les effets des oeustrogène (Plusieurs réponse) ?",
+      "options": [
+        "Poussée des seins",
+        "Repartition des graisses différente",
+        "Modification de la voix",
+        "Diminution de la pillositée"
+      ],
+      "correctIndex": [0, 1, 3]
+    },
+    {
+      "question": "Qu'est se qu'un Blåhaj ?",
+      "options": [
+        "Un habit",
+        "Une chanteuse",
+        "Une mascotte transfem",
+        "Une boisson"
+      ],
+      "correctIndex": [2]
+    },
+    {
+      "question": "Qu'est se que le tucking ?",
+      "options": [
+        "Un genre musical",
+        "Un moyen de cachée son service 3 pièce",
+        "Une pratique sexuel",
+        "Une oprération"
+      ],
+      "correctIndex": [1]
+    },
+    {
+      "question": "Quelle est le bord politique de la majoritée des transfem ?",
+      "options": ["Extrème droite", "Droite", "Gauche", "Extrème gauche"],
+      "correctIndex": [3]
+    },
+    {
+      "question": "Qui est Magnus Hirschfeld ?",
+      "options": [
+        "Le premier scientifique à avoir travaillée sur les personnes trans",
+        "Un Nazi ayant chasser des personne à partir de 1933",
+        "Le premer homme trans ayant fait une transition médical documantée",
+        "Un chanteur ayant pris la défance des personnes trans pendant le 3ème Reich"
+      ],
+      "correctIndex": [0]
+    },
+    {
+      "question": "Qu'est il arrivée à ces travaux ?",
+      "options": [
+        "Ils ont été sensurée perdu pendant un bombardement",
+        "Ils ont été détruits lors d'autodafés organisés par les nazis en 1933",
+        "Ils ont mirraculesement survécu",
+        "Ils les à lui même détruit pour se protégée des nazis"
+      ],
+      "correctIndex": [1]
+    }
+  ]
+}
