@@ -19,14 +19,23 @@ export function addQuestionHtml(data, nbQuestion, divID) {
   const div = document.getElementById(divID);
 
   div.innerHTML = `<h3>${question}</h3>`;
-
-  options.forEach((option) => {
-    div.innerHTML += `
+  if (1 < extractCorrectIndex(data, nbQuestion).length) {
+    options.forEach((option) => {
+      div.innerHTML += `
       <label>
         <input type="checkbox" class="check-option">
         ${option}
       </label><br>`;
-  });
+    });
+  } else {
+    options.forEach((option) => {
+      div.innerHTML += `
+      <label>
+        <input type="radio" class="check-option" name="answerRadio">
+        ${option}
+      </label><br>`;
+    });
+  }
 
   div.innerHTML += `
     <div id="good-girl">
@@ -102,17 +111,12 @@ function nextQuestion(data, nbQuestion, divID, btn) {
 
 function finalScren(divID, data) {
   const div = document.getElementById(divID);
-  const score = "8/11";
 
   div.innerHTML = `<h3 id="congratMessage">Bravo pour avoir fini le test.</h3>
   <p id="scoreid">Score : ${calcScore(data, goodAnswers)}</p>`;
 }
-//
-// Récupérer les réponses, //
-//de 0 à 100//
-// compter en fonction des bonnereponse selon nombre de question//
-//et mettre ma fonction score dans l'affichage//
-//data.length nombre de question//
+//Calcul du Score//
+//Faire affichage//
 export let goodAnswers = 0;
 
 export function calcScore(data, bonneReponses) {
