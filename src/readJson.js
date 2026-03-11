@@ -63,7 +63,7 @@ function comparReponse(data, nbQuestion, checkOption, divID) {
     const btn = document.getElementById("nextQuestion");
     nextQuestion(data, nbQuestion, divID, btn);
   } else {
-    finalScren(divID);
+    finalScren(divID, data);
   }
 }
 
@@ -79,6 +79,8 @@ function goodGirl(divID) {
     <p>Bonne fille</p>
     <button id="nextQuestion">Question suivante</button>
   `;
+  goodAnswers++;
+  console.log(goodAnswers);
 }
 
 // --- Mauvaise réponse ---
@@ -98,10 +100,23 @@ function nextQuestion(data, nbQuestion, divID, btn) {
   });
 }
 
-function finalScren(divID) {
+function finalScren(divID, data) {
   const div = document.getElementById(divID);
   const score = "8/11";
 
   div.innerHTML = `<h3 id="congratMessage">Bravo pour avoir fini le test.</h3>
-  <p id="score">Score : ${score}</p>`;
+  <p id="scoreid">Score : ${calcScore(data, goodAnswers)}</p>`;
+}
+//
+// Récupérer les réponses, //
+//de 0 à 100//
+// compter en fonction des bonnereponse selon nombre de question//
+//et mettre ma fonction score dans l'affichage//
+//data.length nombre de question//
+export let goodAnswers = 0;
+
+export function calcScore(data, bonneReponses) {
+  let nbsQuestion = data.length;
+  let score = `${bonneReponses} / ${nbsQuestion}`;
+  return score;
 }
