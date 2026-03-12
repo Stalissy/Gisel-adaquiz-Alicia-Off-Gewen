@@ -68,7 +68,7 @@ function comparReponse(data, nbQuestion, checkOption, divID) {
   } else {
     badGirl("good-girl");
   }
-  if (nbQuestion < data.length - 1) {
+  if (nbQuestion < data.length) {
     const btn = document.getElementById("nextQuestion");
     nextQuestion(data, nbQuestion, divID, btn);
   } else {
