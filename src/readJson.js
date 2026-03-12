@@ -1,3 +1,15 @@
+export function start(json, btn) {
+  fetch(`/${json}`)
+    .then((response) => response.json())
+    .then((data) => {
+      btn.addEventListener("click", () => {
+        addQuestionHtml(data.questions, 1, "main");
+        btnValide(data.questions, 1, "valide", "main");
+      });
+    })
+    .catch((error) => console.error("Erreur :", error));
+}
+
 // --- Fonctions d'extraction ---
 function extractQuestion(data, nbQuestion) {
   return data[nbQuestion - 1].question;
@@ -59,11 +71,11 @@ function comparReponse(data, nbQuestion, checkOption, divID) {
   } else {
     badGirl("good-girl");
   }
-  if (nbQuestion < data.length - 1) {
+  if (nbQuestion < data.length) {
     const btn = document.getElementById("nextQuestion");
     nextQuestion(data, nbQuestion, divID, btn);
   } else {
-    finalScren(divID);
+    finalScren(divID, data);
   }
 }
 
@@ -98,10 +110,24 @@ function nextQuestion(data, nbQuestion, divID, btn) {
   });
 }
 
-function finalScren(divID) {
+// --- Affiche l'écrant de fin ---
+function finalScren(divID, data) {
   const div = document.getElementById(divID);
   const score = "8/11";
 
   div.innerHTML = `<h3 id="congratMessage">Bravo pour avoir fini le test.</h3>
-  <p id="score">Score : ${score}</p>`;
+  <p id="score">Score : ${score}</p>
+  <button id="restart">Recomancer le quiz</button>`;
+
+  restart(data);
+}
+
+// --- Bounton recommancée ---
+function restart(data) {
+  const btnRestart = document.getElementById("restart");
+  btnRestart.addEventListener("click", () => {
+    goodAnswers = 0;
+    addQuestionHtml(data, 1, "main");
+    btnValide(data, 1, "valide", "main");
+  });
 }
