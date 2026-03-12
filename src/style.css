@@ -4,52 +4,46 @@
   box-sizing: border-box;
 }
 
-/** Coler,style text token */
+/** Color,style text token */
 :root {
-  --color-primary: #dec1db;
-  --color-text: #f3f4a4;
-  --bg-color: #9e99d6;
-  --color-bg-color: pink;
-  --text-mono: "Share Tech Mono", monospace;
+  --color-text: #5b61b2;
+  --bg-color: #dec1db;
+  --text-mono: "Pixelify Sans", sans-serif;
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-primary: #ffcfea;
-    --color-text: #feffbe;
-    --bg-color: rgb(3, 3, 38);
+    --color-text: #a8adff;
+    --bg-color: #1a1020;
+    --text-mono: "Pixelify Sans", sans-serif;
   }
 }
-/* * bases */
+
+/* * Bases */
 body {
   font-family: var(--text-mono);
+  font-weight: 500;
   color: var(--color-text);
   background-color: var(--bg-color);
-  /* text-align: center; */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 2rem 1rem;
 }
+
 /* *header*/
 header {
   margin-bottom: 2rem;
 }
 header h1 {
-  font-family: "Rubik Glitch", system-ui;
-  font-weight: 400;
+  font-family: "Tiny5", sans-serif;
+  font-weight: 800;
   font-style: normal;
   font-size: clamp(3rem, 10vw, 6rem);
-  font-weight: 900;
   text-transform: uppercase;
-  line-height: 0.9;
-  letter-spacing: -0.02em;
+  line-height: 2;
+  letter-spacing: -0.01em;
   position: relative;
-}
-header h1::before,
-header h1::after {
-  content: "  ";
-  font-size: 0.8em;
 }
 main {
   width: 100%;
@@ -58,6 +52,9 @@ main {
 
 /* *button */
 button {
+  flex-direction: row;
+  font-family: var(--text-mono);
+  color: var(--color-text);
   background: #ffcfcf;
   background: radial-gradient(
     circle,
