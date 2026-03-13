@@ -33,15 +33,15 @@ body {
 
 /* *header*/
 header {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 header h1 {
   font-family: "Tiny5", sans-serif;
   font-weight: 800;
   font-style: normal;
-  font-size: clamp(3rem, 10vw, 6rem);
+  font-size: clamp(2rem, 10vw, 6rem);
   text-transform: uppercase;
-  line-height: 2;
+  line-height: 1;
   letter-spacing: -0.01em;
   position: relative;
 }
@@ -64,5 +64,5 @@ button {
   text-align: center;
   border-radius: 2rem;
   padding: 1rem;
-  margin: 1rem;
+  margin: 2rem;
 }
