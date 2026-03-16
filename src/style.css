@@ -6,24 +6,25 @@
 
 /** Color,style text token */
 :root {
+  --color-text--titres: #a8adff;
   --color-text: #5b61b2;
   --bg-color: #dec1db;
   --text-mono: "Pixelify Sans", sans-serif;
 }
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --color-text: #a8adff;
     --bg-color: #1a1020;
     --text-mono: "Pixelify Sans", sans-serif;
   }
-}
+} */
 
 /* * Bases */
 body {
   font-family: var(--text-mono);
   font-weight: 500;
   color: var(--color-text);
-  background-color: var(--bg-color);
+  background-image: url(../public/background\ accueil.png);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -32,6 +33,7 @@ body {
 }
 
 /* *Ecran d'accueil*/
+
 header {
   margin-bottom: 1rem;
 }
@@ -44,6 +46,11 @@ header h1 {
   line-height: 1.5;
   letter-spacing: -0.01em;
   position: relative;
+  color: var(--color-text--titres);
+}
+h2 {
+  color: var(--color-text--titres);
+  font-weight: 200;
 }
 #accueil {
   font-family: var(--text-mono);
