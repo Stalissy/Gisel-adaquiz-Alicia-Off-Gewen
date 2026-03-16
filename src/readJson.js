@@ -79,7 +79,7 @@ function comparReponse(data, nbQuestion, checkOption, divID) {
   if (arraysEqual(correctIndex, checkOption)) {
     goodGirl("good-girl");
   } else {
-    badGirl("good-girl");
+    badGirl("good-girl", data, nbQuestion);
   }
   if (nbQuestion < data.length) {
     const btn = document.getElementById("nextQuestion");
@@ -115,11 +115,17 @@ function goodGirl(divID) {
   console.log(goodAnswers);
 }
 
-// --- Mauvaise réponse ---
-function badGirl(divID) {
+// --- Mauvaise réponse affichage de la bonne reponses ---
+function badGirl(divID, data, nbQuestion) {
   const div = document.getElementById(divID);
+  const question = data[nbQuestion - 1];
+  const correctAnswers = question.correctIndex
+    .map((index) => question.options[index])
+    .join(", ");
+
   div.innerHTML = `
     <p>Mauvaise fille</p>
+     <p>La bonne réponse était : <strong>${correctAnswers}</strong></p>
     <button id="nextQuestion">Question suivante</button>
   `;
 }
@@ -135,10 +141,12 @@ function nextQuestion(data, nbQuestion, divID, btn) {
 function finalScren(divID, data) {
   const div = document.getElementById(divID);
 
-  div.innerHTML = `<h3 id="congratMessage">Bravo pour avoir fini le test.</h3>
-  <p id="scoreid"> Ton score est de : ${calcScore(data, goodAnswers)}</p>;
-  <p id="message">${checkScore(goodAnswers, data)}</p>;
-  <button id="restart">Recommencer le quiz</button>`;
+  div.innerHTML = `
+  <h3 id="congratMessage">Bravo pour avoir fini le test.</h3>
+  <p id="scoreid"> Ton score est de : ${calcScore(data, goodAnswers)}</p>
+  <p id="message">${checkScore(goodAnswers, data)}</p>
+  <button id="restart">Recommencer le quiz</button>
+  `;
 
   restart(data);
 }
