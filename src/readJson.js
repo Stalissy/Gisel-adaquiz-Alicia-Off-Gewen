@@ -1,3 +1,4 @@
+import { checkScore } from "./affichage";
 export function start(json, btn) {
   fetch(`/${json}`)
     .then((response) => response.json())
@@ -89,6 +90,12 @@ function comparReponse(data, nbQuestion, checkOption, divID) {
 }
 
 // --- Vérification d'égalité de tableaux ---
+/**
+ * vérif
+ * @param {*} a
+ * @param {*} b
+ * @returns
+ */
 function arraysEqual(a, b) {
   return a.length === b.length && a.every((val, i) => val === b[i]);
 }
@@ -125,14 +132,14 @@ function finalScren(divID, data) {
   const div = document.getElementById(divID);
 
   div.innerHTML = `<h3 id="congratMessage">Bravo pour avoir fini le test.</h3>
-
   <p id="scoreid"> Ton score est de : ${calcScore(data, goodAnswers)}</p>;
-  <button id="restart">Recomancer le quiz</button>`;
+  <p id="message">${checkScore(goodAnswers, data)}</p>;
+  <button id="restart">Recommencer le quiz</button>`;
 
   restart(data);
 }
 
-// --- Bounton recommancée ---
+// --- Bounton recommencer ---
 function restart(data) {
   const btnRestart = document.getElementById("restart");
   btnRestart.addEventListener("click", () => {
@@ -142,10 +149,13 @@ function restart(data) {
   });
 }
 
-//Calcul du Score//
-//Faire affichage//
 export let goodAnswers = 0;
-
+/**
+ * Score
+ * @param {*} data
+ * @param {number} bonneReponses number of good answers
+ * @returns
+ */
 export function calcScore(data, bonneReponses) {
   let nbsQuestion = data.length;
   let score = `${bonneReponses} / ${nbsQuestion}`;

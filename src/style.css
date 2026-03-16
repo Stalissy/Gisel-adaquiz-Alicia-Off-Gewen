@@ -31,28 +31,34 @@ body {
   padding: 2rem 1rem;
 }
 
-/* *header*/
+/* *Ecran d'accueil*/
 header {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 header h1 {
   font-family: "Tiny5", sans-serif;
   font-weight: 800;
   font-style: normal;
-  font-size: clamp(3rem, 10vw, 6rem);
+  font-size: clamp(2rem, 10vw, 6rem);
   text-transform: uppercase;
-  line-height: 2;
+  line-height: 1.5;
   letter-spacing: -0.01em;
   position: relative;
 }
-main {
-  width: 100%;
-  max-width: 640px;
+#accueil {
+  font-family: var(--text-mono);
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: -0.001em;
+  position: relative;
+  text-align: center;
 }
 
 /* *button */
 button {
-  flex-direction: row;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   font-family: var(--text-mono);
   color: var(--color-text);
   background: #ffcfcf;
@@ -64,5 +70,19 @@ button {
   text-align: center;
   border-radius: 2rem;
   padding: 1rem;
-  margin: 1rem;
+  margin-top: 1rem;
+  border: solid 0.3rem;
+  cursor: pointer;
+}
+button:hover {
+  transform: scale(1.05) rotate(2deg);
+  box-shadow: 0 0 15px var(--color-text);
+}
+
+#screenquestion {
+  display: flex;
+}
+main {
+  width: 100%;
+  max-width: 640px;
 }
