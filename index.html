@@ -23,12 +23,14 @@
         </div>
         <button
           id="start-btn"
+          onclick="demarrQuiz()"
           onmouseout="this.innerText = 'Les femmes scientifiques célèbres'"
         >
           Les femmes scientifiques célèbres
         </button>
       </section>
       <section id="screen-question" style="display: none">
+        <div id="timer">60</div>
         <div class="question"></div>
         <div id="scoreDisplay">0 / 10</div>
         <button id="next" style="display: none" onclick="questionSuivante()">
