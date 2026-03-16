@@ -19,6 +19,7 @@ export function checkScore(goodAnswers, data) {
     return "Aucune erreur, c'est parfait 😎";
   }
 }
+
 //déjà fait //
 
 // let score = 0;

@@ -84,8 +84,12 @@ function comparReponse(data, nbQuestion, checkOption, divID) {
   if (nbQuestion < data.length) {
     const btn = document.getElementById("nextQuestion");
     nextQuestion(data, nbQuestion, divID, btn);
-  } else {
-    finalScren(divID, data);
+  } else if (nbQuestion === data.length) {
+    const btn = document.getElementById("nextQuestion");
+    btn.textContent = "Voir mon score";
+    btn.addEventListener("click", () => {
+      finalScren(divID, data);
+    });
   }
 }
 
