@@ -6,90 +6,119 @@
 
 /** Color,style text token */
 :root {
-  --color-text--titres: #a8adff;
-  --color-text: #5b61b2;
-  --bg-color: #dec1db;
-  --text-mono: "Pixelify Sans", sans-serif;
+  --color-text--titres: #ff79c6;
+  --color-text: #e8f4ff;
+  --bg-color: #141e3c;
+  --text-mono: "VT323", monospace;
+  --text-title: "Tiny5", monospace;
 }
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --color-text: #a8adff;
-    --bg-color: #1a1020;
-    --text-mono: "Pixelify Sans", sans-serif;
-  }
-} */
-
 /* * Bases */
 body {
+  background-color: var(--bg-color);
   font-family: var(--text-mono);
-  font-weight: 500;
+  font-size: 1.3rem;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0.5rem;
   color: var(--color-text);
   background-image: url(../public/background\ accueil.png);
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2rem 1rem;
-}
-
-/* *Ecran d'accueil*/
-
-header {
-  margin-bottom: 1rem;
-}
-header h1 {
-  font-family: "Tiny5", sans-serif;
-  font-weight: 800;
-  font-style: normal;
-  font-size: clamp(2rem, 10vw, 6rem);
-  text-transform: uppercase;
-  line-height: 1.5;
-  letter-spacing: -0.01em;
-  position: relative;
-  color: var(--color-text--titres);
-}
-h2 {
-  color: var(--color-text--titres);
-  font-weight: 200;
-}
-#accueil {
-  font-family: var(--text-mono);
-  font-style: normal;
-  line-height: 1.5;
-  letter-spacing: -0.001em;
-  position: relative;
-  text-align: center;
-}
-
-/* *button */
-button {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  font-family: var(--text-mono);
-  color: var(--color-text);
-  background: #ffcfcf;
-  background: radial-gradient(
-    circle,
-    rgba(255, 207, 207, 1) 26%,
-    rgba(173, 214, 255, 1) 100%
-  );
-  text-align: center;
-  border-radius: 2rem;
-  padding: 1rem;
-  margin-top: 1rem;
-  border: solid 0.3rem;
-  cursor: pointer;
-}
-button:hover {
-  transform: scale(1.05) rotate(2deg);
-  box-shadow: 0 0 15px var(--color-text);
-}
-
-#screenquestion {
-  display: flex;
 }
 main {
   width: 100%;
-  max-width: 640px;
+}
+/* *Ecran d'accueil*/
+
+#screen-start {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
+  gap: 3rem;
+}
+/**Panneau gauche — titre */
+header {
+  flex: 1;
+  max-width: 320px;
+  background: rgba(10, 20, 60, 0.82);
+  padding: 1.6rem 1.8rem 1.8rem;
+  border: 3px solid var(--color-text--titres);
+  outline-offset: -3px;
+}
+
+header h1 {
+  font-family: var(--text-title);
+  font-size: 3rem;
+  color: var(--color-text--titres);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  line-height: 1.15;
+  filter: drop-shadow(3px 3px 0px #7b1c52);
+  margin-bottom: 0.6rem;
+}
+
+header p {
+  font-family: var(--text-mono);
+  font-size: 1.2rem;
+  color: var(--color-text);
+}
+
+/* *Colonne droite — boutons */
+.menu-buttons {
+  flex: 1;
+  max-width: 340px;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  white-space: nowrap;
+}
+h2,
+h3,
+p {
+  font-family: var(--text-mono);
+  color: var(--color-text--titres);
+  font-size: 1.25rem;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+  white-space: nowrap;
+}
+
+/* *Les Boutons à modifier */
+button {
+  font-family: var(--text-mono);
+  font-size: 1.3rem;
+  color: var(--color-text);
+  background: rgba(13, 27, 75, 0.7);
+  border: 2px dashed var(--color-text--titres);
+  padding: 0.5rem 1rem;
+  white-space: nowrap;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  outline-offset: -3px;
+  transition:
+    background 0.12s,
+    outline-color 0.12s,
+    transform 0.12s;
+}
+button:hover {
+  background: rgba(255, 121, 198, 0.2);
+  color: #fff;
+  outline-color: #fff;
+  transform: scale(1.03);
+  cursor: pointer;
+}
+
+/* *Écran question */
+#screen-question {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
+  gap: 1.5rem;
 }
