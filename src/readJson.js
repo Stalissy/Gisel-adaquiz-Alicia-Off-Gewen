@@ -140,7 +140,7 @@ function goodGirl(divID) {
     <button id="nextQuestion">Question suivante</button>
   `;
   goodAnswers++;
-  console.log(goodAnswers);
+  // console.log(goodAnswers);
 }
 
 // --- Mauvaise réponse affichage de la bonne reponses ---
@@ -211,5 +211,5 @@ export function calcScore(data, bonneReponses) {
   let score = `${bonneReponses} / ${nbsQuestion}`;
   return score;
 }
-console.log(addQuestionHtml);
-console.log(startProgress);
+// console.log(addQuestionHtml);
+// console.log(startProgress);
