@@ -6,25 +6,26 @@
     <link rel="stylesheet" href="./src/style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Tiny5&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Tiny5&family=VT323&display=swap"
       rel="stylesheet"
     />
-    <title>adaquiz2</title>
+    <title>adaquiz</title>
   </head>
   <body>
-    <header>
-      <h1>Quiz Queen</h1>
-    </header>
     <main id="main">
       <section id="screen-start">
-        <div id="accueil">
+        <header>
+          <h1>Quiz Queen</h1>
           <h2>Teste tes connaissances sur :</h2>
+        </header>
+        <div class="menu-buttons">
+          <button id="btn-femme-scientifique">
+            Les femmes scientifiques célèbres
+          </button>
+          <button id="btn-culture-transfem">La culture transfem</button>
         </div>
-        <button id="btn-femme-scientifique">
-          Les femmes scientifiques célèbres
-        </button>
-        <button id="btn-culture-transfem">La culture transfem</button>
       </section>
+
       <section id="screen-question" style="display: none">
         <div class="question"></div>
         <div id="scoreDisplay">0 / 10</div>
@@ -32,6 +33,7 @@
           Question suivante
         </button>
       </section>
+
       <section id="screen-end" style="display: none">
         <div id="result"></div>
         <div id="app"></div>
