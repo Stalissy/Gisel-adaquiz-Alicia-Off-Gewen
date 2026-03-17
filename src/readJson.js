@@ -211,5 +211,4 @@ export function calcScore(data, bonneReponses) {
   let score = `${bonneReponses} / ${nbsQuestion}`;
   return score;
 }
-console.log(addQuestionHtml);
 console.log(startProgress);
