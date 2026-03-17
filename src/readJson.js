@@ -64,18 +64,18 @@ export function addQuestionHtml(data, nbQuestion, divID) {
   if (1 < extractCorrectIndex(data, nbQuestion).length) {
     options.forEach((option) => {
       div.innerHTML += `
-      <label>
+      <label class=option-answers>
         <input type="checkbox" class="check-option">
         ${option}
-      </label><br>`;
+      </label>`;
     });
   } else {
     options.forEach((option) => {
       div.innerHTML += `
-      <label>
+      <label class=option-answers>
         <input type="radio" class="check-option" name="answerRadio">
         ${option}
-      </label><br>`;
+      </label>`;
     });
   }
 
