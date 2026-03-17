@@ -116,10 +116,10 @@ function comparReponse(data, nbQuestion, checkOption, divID) {
     badGirl("good-girl", data, nbQuestion);
   }
   if (nbQuestion < data.length) {
-    const btn = document.getElementById("nextQuestion");
+    const btn = document.getElementById("next-question");
     nextQuestion(data, nbQuestion, divID, btn);
   } else if (nbQuestion === data.length) {
-    const btnScore = document.getElementById("nextQuestion");
+    const btnScore = document.getElementById("next-question");
     btnScore.textContent = "Voir mon score";
     btnScore.addEventListener("click", () => {
       finalScren(divID, data);
@@ -143,7 +143,7 @@ function goodGirl(divID) {
   const div = document.getElementById(divID);
   div.innerHTML = `
     <p>Bonne fille</p>
-    <button id="nextQuestion">Question suivante</button>
+    <button id="next-question">Question suivante</button>
   `;
   goodAnswers++;
   // console.log(goodAnswers);
@@ -160,7 +160,7 @@ function badGirl(divID, data, nbQuestion) {
   div.innerHTML = `
     <p>Mauvaise fille</p>
      <p>La bonne réponse était : <strong>${correctAnswers}</strong></p>
-    <button id="nextQuestion">Question suivante</button>
+    <button id="next-question">Question suivante</button>
   `;
 }
 
@@ -176,11 +176,11 @@ function finalScren(divID, data) {
   const div = document.getElementById(divID);
 
   div.innerHTML = `
-  <h3 id="congratMessage">Bravo pour avoir fini le test.</h3>
-  <p id="scoreid"> Ton score est de : ${calcScore(data, goodAnswers)}</p>
+  <h3 id="congrat-message">Bravo pour avoir fini le test.</h3>
+  <p id="score-id"> Ton score est de : ${calcScore(data, goodAnswers)}</p>
   <p id="message">${checkScore(goodAnswers, data)}</p>
   <button id="restart">Recommencer le quiz</button>
-  <button id="btnMenu">Retour au menu</button>
+  <button id="btn-menu">Retour au menu</button>
   `;
 
   restart(data);
@@ -200,7 +200,7 @@ function restart(data) {
 }
 
 function returnMenu(data) {
-  const btnMenu = document.getElementById("btnMenu");
+  const btnMenu = document.getElementById("btn-menu");
   btnMenu.addEventListener("click", () => {
     finishQuestion = 0;
     init();
