@@ -1,7 +1,7 @@
 import { checkScore, startProgress } from "./affichage";
 
 export function init() {
-  main = document.getElementById("main");
+  let main = document.getElementById("main");
   main.innerHTML = `
       <section id="screen-start">
         <header>
