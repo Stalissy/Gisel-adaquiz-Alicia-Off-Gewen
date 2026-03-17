@@ -51,7 +51,7 @@ header {
 
 header h1 {
   font-family: var(--text-title);
-  font-size: 3rem;
+  font-size: 4rem;
   color: var(--color-text--titres);
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -73,7 +73,6 @@ header p {
   display: flex;
   flex-direction: column;
   gap: 3rem;
-  white-space: nowrap;
 }
 
 h2,
@@ -84,13 +83,12 @@ p {
   font-size: 1.5rem;
   letter-spacing: 0.07em;
   margin-bottom: 0.5rem;
-  white-space: nowrap;
 }
 
-/* *Les Boutons à modifier */
+/* *Les Boutons */
 button {
   font-family: var(--text-mono);
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   color: var(--color-text);
   background: rgba(13, 27, 75, 0.7);
   border: 2px dashed var(--color-text--titres);
@@ -124,6 +122,7 @@ button:hover {
   gap: 1rem;
 }
 
+/* *Barre de progression*/
 #container {
   width: 100%;
   background: rgba(255, 255, 255, 0.2);
