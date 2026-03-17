@@ -20,6 +20,20 @@ export function checkScore(goodAnswers, data) {
   }
 }
 
+export function startProgress(nbQuestion, total) {
+  const bar = document.getElementById("bar");
+
+  const percent = Math.round((nbQuestion / total) * 100);
+
+  bar.style.width = percent + "%";
+  bar.textContent = percent + "% de progression";
+}
+
+export function addQuestionHtml(data, nbQuestion, divID) {}
+
+// const question = extractQuestion(data, nbQuestion);
+// const options = extractOptions(data, nbQuestion);
+
 //déjà fait //
 
 // let score = 0;

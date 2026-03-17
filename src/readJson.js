@@ -1,4 +1,6 @@
 import { checkScore } from "./affichage";
+import { startProgress } from "./affichage";
+import { addQuestionHtml } from "./affichage";
 export function start(json, btn) {
   fetch(`/${json}`)
     .then((response) => response.json())
@@ -173,3 +175,5 @@ export function calcScore(data, bonneReponses) {
   let score = `${bonneReponses} / ${nbsQuestion}`;
   return score;
 }
+console.log(addQuestionHtml);
+console.log(startProgress);
