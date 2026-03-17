@@ -1,5 +1,7 @@
 import { checkScore, startProgress } from "./affichage";
 
+let finishQuestion = 0;
+
 export function init() {
   let main = document.getElementById("main");
   main.innerHTML = `
@@ -26,6 +28,7 @@ export function init() {
 }
 
 export function start(json, btn) {
+  finishQuestion = 0;
   fetch(`/${json}`)
     .then((response) => response.json())
     .then((data) => {
@@ -96,6 +99,9 @@ export function btnValide(data, nbQuestion, btnID, divID) {
 
     if (checkOption.length > 0) {
       comparReponse(data, nbQuestion, checkOption, divID);
+
+      finishQuestion += 1;
+      startProgress(finishQuestion, data.length);
     }
   });
 }
@@ -140,7 +146,7 @@ function goodGirl(divID) {
     <button id="nextQuestion">Question suivante</button>
   `;
   goodAnswers++;
-  console.log(goodAnswers);
+  // console.log(goodAnswers);
 }
 
 // --- Mauvaise réponse affichage de la bonne reponses ---
@@ -161,7 +167,6 @@ function badGirl(divID, data, nbQuestion) {
 // --- Passage à la question suivante ---
 function nextQuestion(data, nbQuestion, divID, btn) {
   btn.addEventListener("click", () => {
-    startProgress(nbQuestion + 1, data.length);
     addQuestionHtml(data, nbQuestion + 1, divID);
     btnValide(data, nbQuestion + 1, "valide", divID);
   });
@@ -179,23 +184,27 @@ function finalScren(divID, data) {
   `;
 
   restart(data);
-  returnMenu();
+  returnMenu(data);
 }
 
 // --- Bounton recommencer ---
 function restart(data) {
   const btnRestart = document.getElementById("restart");
   btnRestart.addEventListener("click", () => {
+    finishQuestion = 0;
     goodAnswers = 0;
+    startProgress(finishQuestion, data.length);
     addQuestionHtml(data, 1, "main");
     btnValide(data, 1, "valide", "main");
   });
 }
 
-function returnMenu() {
+function returnMenu(data) {
   const btnMenu = document.getElementById("btnMenu");
   btnMenu.addEventListener("click", () => {
+    finishQuestion = 0;
     init();
+    startProgress(0, data.length);
   });
 }
 
@@ -211,5 +220,4 @@ export function calcScore(data, bonneReponses) {
   let score = `${bonneReponses} / ${nbsQuestion}`;
   return score;
 }
-console.log(addQuestionHtml);
 console.log(startProgress);
