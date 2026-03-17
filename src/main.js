@@ -1,5 +1,7 @@
 import "./style.css";
-import { start } from "./readJson.js";
+import { init, start } from "./readJson.js";
+
+init();
 
 const btnFemmeScientifique = document.getElementById("btn-femme-scientifique");
 const btnCultureTransfem = document.getElementById("btn-culture-transfem");

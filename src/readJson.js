@@ -1,4 +1,21 @@
 import { checkScore } from "./affichage";
+export function init() {
+  main = document.getElementById("main");
+  main.innerHTML = `
+      <section id="screen-start">
+        <header>
+          <h1>Quiz Queen</h1>
+          <h2>Teste tes connaissances sur :</h2>
+        </header>
+        <div class="menu-buttons">
+          <button id="btn-femme-scientifique">
+            Les femmes scientifiques célèbres
+          </button>
+          <button id="btn-culture-transfem">La culture transfem</button>
+        </div>
+      </section>`;
+}
+
 export function start(json, btn) {
   fetch(`/${json}`)
     .then((response) => response.json())
@@ -68,7 +85,9 @@ export function btnValide(data, nbQuestion, btnID, divID) {
       if (checkbox.checked) checkOption.push(index);
     });
 
-    comparReponse(data, nbQuestion, checkOption, divID);
+    if (checkOption.length > 0) {
+      comparReponse(data, nbQuestion, checkOption, divID);
+    }
   });
 }
 
@@ -85,9 +104,9 @@ function comparReponse(data, nbQuestion, checkOption, divID) {
     const btn = document.getElementById("nextQuestion");
     nextQuestion(data, nbQuestion, divID, btn);
   } else if (nbQuestion === data.length) {
-    const btn = document.getElementById("nextQuestion");
-    btn.textContent = "Voir mon score";
-    btn.addEventListener("click", () => {
+    const btnScore = document.getElementById("nextQuestion");
+    btnScore.textContent = "Voir mon score";
+    btnScore.addEventListener("click", () => {
       finalScren(divID, data);
     });
   }
@@ -146,9 +165,11 @@ function finalScren(divID, data) {
   <p id="scoreid"> Ton score est de : ${calcScore(data, goodAnswers)}</p>
   <p id="message">${checkScore(goodAnswers, data)}</p>
   <button id="restart">Recommencer le quiz</button>
+  <button id="btnMenu">Retour au menu</button>
   `;
 
   restart(data);
+  returnMenu();
 }
 
 // --- Bounton recommencer ---
@@ -158,6 +179,13 @@ function restart(data) {
     goodAnswers = 0;
     addQuestionHtml(data, 1, "main");
     btnValide(data, 1, "valide", "main");
+  });
+}
+
+function returnMenu() {
+  const btnMenu = document.getElementById("btnMenu");
+  btnMenu.addEventListener("click", () => {
+    init();
   });
 }
 
