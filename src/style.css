@@ -122,3 +122,29 @@ button:hover {
   padding: 2rem;
   gap: 1.5rem;
 }
+
+#container {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px dashed hotpink;
+  height: 24px;
+}
+
+#bar {
+  width: 0%;
+  height: 100%;
+  background: hotpink;
+  color: white;
+  font-family: "VT323", monospace;
+  text-align: center;
+  transition: width 0.4s ease; /* ✨ animation fluide */
+  line-height: 24px;
+}
+
+#container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+}

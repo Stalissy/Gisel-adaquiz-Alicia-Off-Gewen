@@ -1,4 +1,5 @@
-import { checkScore } from "./affichage";
+import { checkScore, startProgress } from "./affichage";
+
 export function init() {
   main = document.getElementById("main");
   main.innerHTML = `
@@ -24,7 +25,7 @@ export function init() {
   start("culture_transfem.json", btnCultureTransfem);
 }
 
-function start(json, btn) {
+export function start(json, btn) {
   fetch(`/${json}`)
     .then((response) => response.json())
     .then((data) => {
@@ -160,6 +161,7 @@ function badGirl(divID, data, nbQuestion) {
 // --- Passage à la question suivante ---
 function nextQuestion(data, nbQuestion, divID, btn) {
   btn.addEventListener("click", () => {
+    startProgress(nbQuestion + 1, data.length);
     addQuestionHtml(data, nbQuestion + 1, divID);
     btnValide(data, nbQuestion + 1, "valide", divID);
   });
@@ -209,3 +211,5 @@ export function calcScore(data, bonneReponses) {
   let score = `${bonneReponses} / ${nbsQuestion}`;
   return score;
 }
+console.log(addQuestionHtml);
+console.log(startProgress);
