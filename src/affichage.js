@@ -20,10 +20,11 @@ export function checkScore(goodAnswers, data) {
   }
 }
 
-export function startProgress(nbQuestion, total) {
+export function startProgress(finishQuestion, total) {
   const bar = document.getElementById("bar");
 
-  const percent = Math.round((nbQuestion / total) * 100);
+  const percent = Math.round((finishQuestion / total) * 100);
+  console.log(finishQuestion);
 
   bar.style.width = percent + "%";
   bar.textContent = percent + "% de progression";
