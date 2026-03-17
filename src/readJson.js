@@ -1,6 +1,6 @@
 import { checkScore } from "./affichage";
 import { startProgress } from "./affichage";
-import { addQuestionHtml } from "./affichage";
+
 export function start(json, btn) {
   fetch(`/${json}`)
     .then((response) => response.json())
@@ -135,6 +135,7 @@ function badGirl(divID, data, nbQuestion) {
 // --- Passage à la question suivante ---
 function nextQuestion(data, nbQuestion, divID, btn) {
   btn.addEventListener("click", () => {
+    startProgress(nbQuestion + 1, data.length);
     addQuestionHtml(data, nbQuestion + 1, divID);
     btnValide(data, nbQuestion + 1, "valide", divID);
   });
