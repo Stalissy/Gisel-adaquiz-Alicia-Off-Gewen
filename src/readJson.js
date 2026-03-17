@@ -14,9 +14,17 @@ export function init() {
           <button id="btn-culture-transfem">La culture transfem</button>
         </div>
       </section>`;
+
+  const btnFemmeScientifique = document.getElementById(
+    "btn-femme-scientifique",
+  );
+  const btnCultureTransfem = document.getElementById("btn-culture-transfem");
+
+  start("femme_scientifique.json", btnFemmeScientifique);
+  start("culture_transfem.json", btnCultureTransfem);
 }
 
-export function start(json, btn) {
+function start(json, btn) {
   fetch(`/${json}`)
     .then((response) => response.json())
     .then((data) => {
