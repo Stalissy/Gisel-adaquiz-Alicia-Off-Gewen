@@ -109,7 +109,7 @@ button:hover {
   color: #fff;
   outline-color: #fff;
   transform: scale(1.03);
-  cursor: pointer;
+  cursor: crosshair;
 }
 
 /* *Écran question */
