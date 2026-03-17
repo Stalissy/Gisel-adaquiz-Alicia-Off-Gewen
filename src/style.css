@@ -75,13 +75,14 @@ header p {
   gap: 3rem;
   white-space: nowrap;
 }
+
 h2,
 h3,
 p {
   font-family: var(--text-mono);
   color: var(--color-text--titres);
-  font-size: 1.25rem;
-  letter-spacing: 0.05em;
+  font-size: 1.5rem;
+  letter-spacing: 0.07em;
   margin-bottom: 0.5rem;
   white-space: nowrap;
 }
@@ -113,12 +114,12 @@ button:hover {
 }
 
 /* *Écran question */
-#screen-question {
+.questions {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  font-size: 1.5rem;
   min-height: 100vh;
-  padding: 2rem;
-  gap: 1.5rem;
+  gap: 1rem;
 }

@@ -55,7 +55,7 @@ export function addQuestionHtml(data, nbQuestion, divID) {
   const options = extractOptions(data, nbQuestion);
 
   const div = document.getElementById(divID);
-
+  div.classList.add("questions");
   div.innerHTML = `<h3>${question}</h3>`;
   if (1 < extractCorrectIndex(data, nbQuestion).length) {
     options.forEach((option) => {
