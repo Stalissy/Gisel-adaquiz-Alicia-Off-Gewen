@@ -62,6 +62,7 @@ export function addQuestionHtml(data, nbQuestion, divID) {
   div.classList.add("questions");
   div.innerHTML = `<h3>${question}</h3>`;
   if (1 < extractCorrectIndex(data, nbQuestion).length) {
+    div.innerHTML += `<div class="options-grid">`;
     options.forEach((option) => {
       div.innerHTML += `
       <label class=option-answers>
@@ -69,7 +70,9 @@ export function addQuestionHtml(data, nbQuestion, divID) {
         ${option}
       </label>`;
     });
+    div.innerHTML += `</div>`;
   } else {
+    div.innerHTML += `<div class="options-grid">`;
     options.forEach((option) => {
       div.innerHTML += `
       <label class=option-answers>
@@ -77,6 +80,7 @@ export function addQuestionHtml(data, nbQuestion, divID) {
         ${option}
       </label>`;
     });
+    div.innerHTML += `</div>`;
   }
 
   div.innerHTML += `

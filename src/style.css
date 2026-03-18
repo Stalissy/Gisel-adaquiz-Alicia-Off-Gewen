@@ -124,6 +124,24 @@ button:hover {
   min-height: 100vh;
   gap: 1rem;
 }
+/* * en cours  */
+.options-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.option-answers {
+  font-family: var(--text-mono);
+  font-size: 1.5rem;
+  color: var(--color-text);
+  background: rgba(13, 27, 75, 0.7);
+  border: 3px solid var(--color-text--titres);
+  padding: 0.5rem 1rem;
+  white-space: nowrap;
+  text-align: justify;
+}
 
 /* *Barre de progression*/
 #container {
