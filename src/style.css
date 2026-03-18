@@ -106,7 +106,7 @@ button {
     transform 0.12s;
 }
 button:hover {
-  background: rgba(255, 121, 198, 0.2);
+  background: rgba(229, 69, 160, 0.4);
   color: #fff;
   outline-color: #fff;
   transform: scale(1.03);
@@ -120,29 +120,89 @@ button:hover {
   align-items: center;
   justify-content: center;
   text-align: center;
-  font-size: 1.5rem;
   min-height: 100vh;
   gap: 1rem;
+  padding: 1rem;
+  animation: fadeIn 0.1s ease;
 }
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 2;
+    transform: translateY(0);
+  }
+}
+.questions h3 {
+  font-family: var(--text-mono);
+  font-size: 1.8rem;
+  color: var(--color-text--titres);
+  letter-spacing: 0.06em;
+  background: rgba(10, 20, 60, 0.85);
+  border-bottom: 3px solid var(--color-text--titres);
+  padding: 1.2rem 2rem;
+  max-width: 700px;
+  line-height: 1.4;
+  position: relative;
+}
+
 /* * en cours  */
 .options-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  gap: 8px;
+  gap: 5px;
+  max-width: 680px;
+  width: 100%;
 }
-
 .option-answers {
   font-family: var(--text-mono);
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   color: var(--color-text);
-  background: rgba(13, 27, 75, 0.7);
-  border: 3px solid var(--color-text--titres);
-  padding: 0.5rem 1rem;
-  white-space: nowrap;
-  text-align: justify;
+  background: rgba(13, 27, 75, 0.75);
+  border: 2px solid rgba(229, 69, 160, 0.4);
+  padding: 0.8rem 1.2rem;
+  text-align: left;
+  cursor: crosshair;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  transition:
+    background 0.15s,
+    border-color 0.15s,
+    transform 0.1s;
+  line-height: 1.4;
 }
-
+.option-answers:hover {
+  background: rgba(229, 69, 160, 0.4);
+  border-color: var(--color-text--titres);
+  transform: translateX(8px);
+}
+.option-answers:has(input:checked) {
+  background: rgba(255, 121, 198, 0.22);
+  border-color: var(--color-text--titres);
+  border-style: solid;
+  color: #fff;
+}
+.option-answers input[type="checkbox"],
+.option-answers input[type="radio"] {
+  display: none;
+}
+/* Zone bouton valider */
+#good-girl {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#feedback-zone {
+  min-height: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+}
 /* *Barre de progression*/
 #container {
   width: 100%;
