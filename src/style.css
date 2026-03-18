@@ -23,7 +23,9 @@ body {
   justify-content: center;
   margin: 0.5rem;
   color: var(--color-text);
-  background-image: url(../public/background\ accueil.png);
+  background-image: url(../public/background-accueil.png);
+  background-size: cover;
+  background-attachment: fixed;
   min-height: 100vh;
 }
 main {
@@ -51,7 +53,7 @@ header {
 
 header h1 {
   font-family: var(--text-title);
-  font-size: 3rem;
+  font-size: 4rem;
   color: var(--color-text--titres);
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -73,7 +75,6 @@ header p {
   display: flex;
   flex-direction: column;
   gap: 3rem;
-  white-space: nowrap;
 }
 
 h2,
@@ -84,13 +85,12 @@ p {
   font-size: 1.5rem;
   letter-spacing: 0.07em;
   margin-bottom: 0.5rem;
-  white-space: nowrap;
 }
 
-/* *Les Boutons à modifier */
+/* *Les Boutons */
 button {
   font-family: var(--text-mono);
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   color: var(--color-text);
   background: rgba(13, 27, 75, 0.7);
   border: 2px dashed var(--color-text--titres);
@@ -119,16 +119,40 @@ button:hover {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
   font-size: 1.5rem;
   min-height: 100vh;
   gap: 1rem;
 }
+/* * en cours  */
+.options-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 8px;
+}
 
+.option-answers {
+  font-family: var(--text-mono);
+  font-size: 1.5rem;
+  color: var(--color-text);
+  background: rgba(13, 27, 75, 0.7);
+  border: 3px solid var(--color-text--titres);
+  padding: 0.5rem 1rem;
+  white-space: nowrap;
+  text-align: justify;
+}
+
+/* *Barre de progression*/
 #container {
   width: 100%;
   background: rgba(255, 255, 255, 0.2);
   border: 2px dashed hotpink;
   height: 24px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
 }
 
 #bar {
@@ -140,12 +164,4 @@ button:hover {
   text-align: center;
   transition: width 0.4s ease; /* ✨ animation fluide */
   line-height: 24px;
-}
-
-#container {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  z-index: 999;
 }
