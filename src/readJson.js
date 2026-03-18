@@ -1,18 +1,28 @@
-import { addQuestionHtml } from "./affichage.js";
-import { btnValide } from "./quizLogic.js";
+// ============================================================
+// readJson.js — Chargement et extraction des données JSON
+// ============================================================
 
+import { state, resetState } from "./state.js";
+
+// --- Chargement du JSON et démarrage ---
 export function start(json, btn) {
-  finishQuestion = 0;
   fetch(`/${json}`)
     .then((response) => response.json())
     .then((data) => {
       btn.addEventListener("click", () => {
-        data = data.questions;
-        addQuestionHtml(data, 1, "main");
-        btnValide(data, 1, "valide", "main");
+        // Import dynamique pour éviter la circularité
+        import("./affichage.js").then(({ addQuestionHtml }) => {
+          import("./quizLogic.js").then(({ btnValide }) => {
+            resetState();
+            state.currentData = data.questions;
+            state.totalQuestions = data.questions.length;
+            addQuestionHtml(state.currentData, 1, "main");
+            btnValide(state.currentData, 1, "valide", "main");
+          });
+        });
       });
     })
-    .catch((error) => console.error("Erreur :", error));
+    .catch((error) => console.error("Erreur lors du chargement du JSON :", error));
 }
 
 // --- Fonctions d'extraction ---
