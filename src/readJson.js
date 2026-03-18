@@ -65,7 +65,7 @@ export function addQuestionHtml(data, nbQuestion, divID) {
     div.innerHTML += `<div class="options-grid">`;
     options.forEach((option) => {
       div.innerHTML += `
-      <label class=option-answers>
+      <label class="option-answers">
         <input type="checkbox" class="check-option">
         ${option}
       </label>`;
@@ -75,7 +75,7 @@ export function addQuestionHtml(data, nbQuestion, divID) {
     div.innerHTML += `<div class="options-grid">`;
     options.forEach((option) => {
       div.innerHTML += `
-      <label class=option-answers>
+      <label class="option-answers">
         <input type="radio" class="check-option" name="answerRadio">
         ${option}
       </label>`;
@@ -84,6 +84,7 @@ export function addQuestionHtml(data, nbQuestion, divID) {
   }
 
   div.innerHTML += `
+   <div id="feedback-zone"></div>
     <div id="good-girl">
       <button id="valide" class="btn">Valider</button>
     </div>`;
@@ -115,9 +116,9 @@ function comparReponse(data, nbQuestion, checkOption, divID) {
   const correctIndex = extractCorrectIndex(data, nbQuestion);
 
   if (arraysEqual(correctIndex, checkOption)) {
-    goodGirl("good-girl");
+    goodGirl();
   } else {
-    badGirl("good-girl", data, nbQuestion);
+    badGirl(data, nbQuestion);
   }
   if (nbQuestion < data.length) {
     const btn = document.getElementById("next-question");
@@ -143,27 +144,29 @@ function arraysEqual(a, b) {
 }
 
 // --- Affichage bonne réponse ---
-function goodGirl(divID) {
-  const div = document.getElementById(divID);
-  div.innerHTML = `
-    <p>Bonne fille</p>
+function goodGirl() {
+  document.getElementById("feedback-zone").innerHTML = `
+    <img src="/gifs/good-girl.gif" alt="bonne réponse" class="feedback-gif">
+    <p>Bonne fille ✓</p>
+  `;
+  document.getElementById("good-girl").innerHTML = `
     <button id="next-question">Question suivante</button>
   `;
   goodAnswers++;
-  // console.log(goodAnswers);
 }
-
-// --- Mauvaise réponse affichage de la bonne reponses ---
-function badGirl(divID, data, nbQuestion) {
-  const div = document.getElementById(divID);
+// affichage mauvaise reponses//
+function badGirl(data, nbQuestion) {
   const question = data[nbQuestion - 1];
   const correctAnswers = question.correctIndex
     .map((index) => question.options[index])
     .join(", ");
 
-  div.innerHTML = `
-    <p>Mauvaise fille</p>
-     <p>La bonne réponse était : <strong>${correctAnswers}</strong></p>
+  document.getElementById("feedback-zone").innerHTML = `
+    <img src="" alt="mauvaise réponse" class="feedback-gif">
+    <p>Mauvaise fille ✗</p>
+    <p>La bonne réponse était : ${correctAnswers}</p>
+  `;
+  document.getElementById("good-girl").innerHTML = `
     <button id="next-question">Question suivante</button>
   `;
 }
