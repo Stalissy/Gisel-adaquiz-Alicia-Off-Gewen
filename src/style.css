@@ -125,6 +125,7 @@ button:hover {
   padding: 1rem;
   animation: fadeIn 0.1s ease;
 }
+/** animation fadeIn */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -147,14 +148,13 @@ button:hover {
   line-height: 1.4;
   position: relative;
 }
-
-/* * en cours  */
 .options-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 5px;
+  gap: 12px;
   max-width: 680px;
   width: 100%;
+  margin: 1rem;
 }
 .option-answers {
   font-family: var(--text-mono);
@@ -189,20 +189,14 @@ button:hover {
 .option-answers input[type="radio"] {
   display: none;
 }
-/* Zone bouton valider */
+
+/** Zone bouton valider */
 #good-girl {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-#feedback-zone {
-  min-height: 5rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.4rem;
-}
+
 /* *Barre de progression*/
 #container {
   width: 100%;
@@ -222,6 +216,6 @@ button:hover {
   color: white;
   font-family: "VT323", monospace;
   text-align: center;
-  transition: width 0.4s ease; /* ✨ animation fluide */
+  transition: width 0.4s ease;
   line-height: 24px;
 }

@@ -50,6 +50,7 @@ export function comparReponse(data, nbQuestion, checkOption, divID) {
 }
 
 // --- Vérification d'égalité de tableaux ---
+
 export function arraysEqual(a, b) {
   return a.length === b.length && a.every((val, i) => val === b[i]);
 }
