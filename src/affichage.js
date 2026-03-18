@@ -114,8 +114,8 @@ export function finalScren(divID, data) {
   const div = document.getElementById(divID);
   div.innerHTML = `
     <h3 id="congrat-message">Bravo pour avoir fini le test.</h3>
-    <p id="score-id">Ton score est de : ${calcScore(data, state.goodAnswers)}</p>
     <p id="message">${checkScore(state.goodAnswers, data)}</p>
+    <p id="score-id">Ton score est de : ${calcScore(data, state.goodAnswers)}</p>
     <button id="restart">Recommencer le quiz</button>
     <button id="btn-menu">Retour au menu</button>
   `;
