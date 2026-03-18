@@ -1,4 +1,6 @@
+console.log("feur");
+
 import "./style.css";
-import { init } from "./readJson.js";
+import { init } from "./affichage.js";
 
 init();
