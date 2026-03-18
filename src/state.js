@@ -7,6 +7,7 @@ export const state = {
   goodAnswers: 0,
   currentData: [],
   totalQuestions: 0,
+  isInQuiz: false,
 };
 
 export function resetState() {
@@ -14,4 +15,5 @@ export function resetState() {
   state.goodAnswers = 0;
   state.currentData = [];
   state.totalQuestions = 0;
+  state.isInQuiz = false;
 }

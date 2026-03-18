@@ -204,7 +204,7 @@ button:hover {
   gap: 0.4rem;
 }
 /* *Barre de progression*/
-#container {
+.container {
   width: 100%;
   background: rgba(255, 255, 255, 0.2);
   border: 2px dashed hotpink;
@@ -214,14 +214,13 @@ button:hover {
   left: 0;
   z-index: 999;
 }
-
-#bar {
+.bar {
   width: 0%;
   height: 100%;
   background: hotpink;
   color: white;
   font-family: "VT323", monospace;
   text-align: center;
-  transition: width 0.4s ease; /* ✨ animation fluide */
+  transition: width 0.4s ease;
   line-height: 24px;
 }

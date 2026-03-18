@@ -10,6 +10,7 @@ import {
   badGirl,
   startProgress,
   finalScren,
+  activeProgressBar,
 } from "./affichage.js";
 
 // --- Gestion du bouton de validation ---
@@ -70,6 +71,8 @@ export function restart(data) {
     startProgress(0, data.length);
     addQuestionHtml(data, 1, "main");
     btnValide(data, 1, "valide", "main");
+    state.isInQuiz = true;
+    activeProgressBar();
   });
 }
 
@@ -81,6 +84,7 @@ export function returnMenu(data) {
       resetState();
       startProgress(0, data.length);
       init();
+      activeProgressBar();
     });
   });
 }
