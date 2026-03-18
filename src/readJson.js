@@ -146,7 +146,6 @@ function arraysEqual(a, b) {
 // --- Affichage bonne réponse ---
 function goodGirl() {
   document.getElementById("feedback-zone").innerHTML = `
-    <img src="/gifs/good-girl.gif" alt="bonne réponse" class="feedback-gif">
     <p>Bonne fille ✓</p>
   `;
   document.getElementById("good-girl").innerHTML = `
@@ -162,7 +161,6 @@ function badGirl(data, nbQuestion) {
     .join(", ");
 
   document.getElementById("feedback-zone").innerHTML = `
-    <img src="" alt="mauvaise réponse" class="feedback-gif">
     <p>Mauvaise fille ✗</p>
     <p>La bonne réponse était : ${correctAnswers}</p>
   `;
