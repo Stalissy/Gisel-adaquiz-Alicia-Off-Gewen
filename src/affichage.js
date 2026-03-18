@@ -13,6 +13,7 @@ import { restart, returnMenu, calcScore } from "./quizLogic.js";
 
 // --- Écran d'accueil / menu ---
 export function init() {
+  state.isInQuiz = false;
   const main = document.getElementById("main");
   main.innerHTML = `
     <section id="screen-start">
@@ -35,6 +36,7 @@ export function init() {
 
   start("femme_scientifique.json", btnFemmeScientifique);
   start("culture_transfem.json", btnCultureTransfem);
+  activeProgressBar();
 }
 
 // --- Affichage d'une question ---
@@ -45,6 +47,8 @@ export function addQuestionHtml(data, nbQuestion, divID) {
   const div = document.getElementById(divID);
   const isMultiple = correctIndex.length > 1;
   const inputType = isMultiple ? "checkbox" : "radio";
+  state.isInQuiz = true;
+  activeProgressBar();
 
   div.classList.add("questions");
   div.innerHTML = `<h3>${question}</h3>`;
@@ -121,4 +125,27 @@ export function finalScren(divID, data) {
   `;
   restart(data);
   returnMenu(data);
+}
+
+export function activeProgressBar() {
+  const bar = document.getElementById("bar");
+  const container = document.getElementById("container");
+
+  if (state.isInQuiz) {
+    bar.style.display = "block";
+    if (!bar.classList.contains("bar")) {
+      bar.classList.add("bar");
+    }
+    if (!container.classList.contains("container")) {
+      container.classList.add("container");
+    }
+  } else {
+    bar.style.display = "none";
+    if (bar.classList.contains("bar")) {
+      bar.classList.remove("bar");
+    }
+    if (container.classList.contains("container")) {
+      container.classList.remove("container");
+    }
+  }
 }
