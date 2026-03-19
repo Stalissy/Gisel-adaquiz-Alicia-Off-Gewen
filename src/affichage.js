@@ -74,7 +74,9 @@ export function addQuestionHtml(data, nbQuestion, divID) {
 export function goodGirl(divID) {
   const div = document.getElementById(divID);
   div.innerHTML = `
-    <p>Bonne fille</p>
+    <div id="answerMessage">
+      <p>Bonne fille</p>
+    </div>
     <button id="next-question">Question suivante</button>
   `;
   state.goodAnswers++;
@@ -88,8 +90,10 @@ export function badGirl(divID, data, nbQuestion) {
     .map((index) => question.options[index])
     .join(", ");
   div.innerHTML = `
-    <p>Mauvaise fille</p>
-    <p>La bonne réponse était :${correctAnswers}</p>
+    <div id="answerMessage">
+      <p>Mauvaise fille</p>
+      <p>La bonne réponse était :${correctAnswers}</p>
+    </div>
     <button id="next-question">Question suivante</button>
   `;
 }

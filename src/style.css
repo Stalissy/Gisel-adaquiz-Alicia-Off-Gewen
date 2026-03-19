@@ -125,7 +125,6 @@ button:hover {
   padding: 1rem;
   animation: fadeIn 0.1s ease;
 }
-/** animation fadeIn */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -148,13 +147,14 @@ button:hover {
   line-height: 1.4;
   position: relative;
 }
+
+/* * en cours  */
 .options-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
+  gap: 5px;
   max-width: 680px;
   width: 100%;
-  margin: 1rem;
 }
 .option-answers {
   font-family: var(--text-mono);
@@ -189,16 +189,22 @@ button:hover {
 .option-answers input[type="radio"] {
   display: none;
 }
-
-/** Zone bouton valider */
+/* Zone bouton valider */
 #good-girl {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
-/* *Barre de progression*/
-.container {
+#feedback-zone {
+  min-height: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+}
+/*Barre de progression*/
+#container {
   width: 100%;
   background: rgba(255, 255, 255, 0.2);
   border: 2px dashed hotpink;
@@ -215,6 +221,27 @@ button:hover {
   color: white;
   font-family: "VT323", monospace;
   text-align: center;
-  transition: width 0.4s ease;
+  transition: width 0.4s ease; /* ✨ animation fluide */
   line-height: 24px;
+}
+
+/* --- FEEDBACK BONNE / MAUVAISE RÉPONSE --- */
+
+#answerMessage {
+  font-family: var(--text-mono);
+  font-size: 1.4rem;
+  color: var(--color-text);
+  background: rgba(13, 27, 75, 0.9);
+  border: 2px solid var(--color-text--titres);
+  padding: 1.2rem 1.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  line-height: 1.5;
+  max-width: 600px;
+  margin: 1rem auto;
+  animation: popIn 0.25s ease;
+  box-shadow: 0 0 12px rgba(255, 121, 198, 0.3);
 }
