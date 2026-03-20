@@ -137,6 +137,7 @@ export function activeProgressBar() {
 
   if (state.isInQuiz) {
     bar.style.display = "block";
+    container.style.display = "block";
     if (!bar.classList.contains("bar")) {
       bar.classList.add("bar");
     }
@@ -145,6 +146,7 @@ export function activeProgressBar() {
     }
   } else {
     bar.style.display = "none";
+    container.style.display = "none";
     if (bar.classList.contains("bar")) {
       bar.classList.remove("bar");
     }
